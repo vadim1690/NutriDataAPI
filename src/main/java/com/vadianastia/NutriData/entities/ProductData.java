@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class ProductData {
@@ -164,5 +165,18 @@ public class ProductData {
 
     public void setVitamins(List<Vitamin> vitamins) {
         this.vitamins = vitamins;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductData that = (ProductData) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(ingredients, that.ingredients) && Objects.equals(calories, that.calories) && Objects.equals(foodGroup, that.foodGroup) && Objects.equals(fat, that.fat) && Objects.equals(sodium, that.sodium) && Objects.equals(carbohydrates, that.carbohydrates) && Objects.equals(imageUrl, that.imageUrl) && Objects.equals(isNatural, that.isNatural) && Objects.equals(fiber, that.fiber) && Objects.equals(sugar, that.sugar) && Objects.equals(protein, that.protein) && Objects.equals(potassium, that.potassium) && Objects.equals(vitamins, that.vitamins);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, ingredients, calories, foodGroup, fat, sodium, carbohydrates, imageUrl, isNatural, fiber, sugar, protein, potassium, vitamins);
     }
 }

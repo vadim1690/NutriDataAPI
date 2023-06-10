@@ -10,4 +10,6 @@ import java.util.List;
 public interface VitaminRepository extends JpaRepository<Vitamin, String> {
 
     List<Vitamin> findAllByName(String name);
+
+    List<Vitamin> findAllByNameIgnoreCase(String name);
 }

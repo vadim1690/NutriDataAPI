@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface FoodGroupRepository extends JpaRepository<FoodGroup, String> {
 
-    List<FoodGroup> findAllByName(String name);
+    List<FoodGroup> findAllByNameIgnoreCase(String name);
 }
