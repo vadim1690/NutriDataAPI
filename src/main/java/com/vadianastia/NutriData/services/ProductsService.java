@@ -110,4 +110,12 @@ public class ProductsService {
     public ResponseEntity<List<ProductData>> getAllNotNaturalNutriData() {
         return new ResponseEntity<>(productRepository.findAllByIsNatural(false), HttpStatus.OK);
     }
+
+    public ResponseEntity<Double> getCaloriesForProduct(String name) {
+        return new ResponseEntity<>(productRepository.findCaloriesByNameIgnoreCase(name), HttpStatus.OK);
+    }
+
+    public ResponseEntity<Double> getSugarForProduct(String name) {
+        return new ResponseEntity<>(productRepository.findSugarByNameIgnoreCase(name), HttpStatus.OK);
+    }
 }

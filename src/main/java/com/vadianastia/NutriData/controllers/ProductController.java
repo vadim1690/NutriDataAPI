@@ -49,6 +49,16 @@ public class ProductController {
         return productsService.getAllNotNaturalNutriData();
     }
 
+    @GetMapping("/Calories/{name}")
+    public ResponseEntity<Double> getCaloriesForProduct(@PathVariable String name) {
+        return productsService.getCaloriesForProduct(name);
+    }
+
+    @GetMapping("/Sugar/{name}")
+    public ResponseEntity<Double> getSugarForProduct(@PathVariable String name) {
+        return productsService.getSugarForProduct(name);
+    }
+
     @PostMapping
     public ResponseEntity<List<ProductData>> createProducts(@RequestBody List<ProductData> productsData) {
         return productsService.createProducts(productsData);
